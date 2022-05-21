@@ -9,7 +9,7 @@ class LinksController < ApplicationController
   # GET /links/1 or /links/1.json
   def show
     @link = Link.find(params[:id])
-    @link.ip = request.remote_ip
+    @link.ip << request.remote_ip
     @link.save
 
     redirect_to @link.to, allow_other_host: true
